@@ -189,6 +189,76 @@ body {
 }
 .info strong { color: #0c5460; }
 
+/* Music section */
+.music-section {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  scroll-margin-top: 24px;
+}
+.music-section h2 {
+  font-size: 1.1rem;
+  color: #1a1a2e;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e74c3c;
+}
+.track {
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.track-header {
+  background: linear-gradient(135deg, #1a1a2e, #0f3460);
+  color: white;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.track-header:hover { opacity: 0.95; }
+.track-title { font-weight: 700; font-size: 1rem; }
+.track-style { font-size: 0.8rem; opacity: 0.7; margin-top: 2px; }
+.track-toggle { font-size: 0.85rem; opacity: 0.6; }
+.track-player {
+  padding: 14px 18px;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.track-player audio { flex: 1; height: 36px; }
+.track-player a {
+  background: #e74c3c;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.track-player a:hover { background: #c0392b; }
+.track-lyrics {
+  padding: 0 18px 16px;
+  background: #fafafa;
+  display: none;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.track-lyrics.open { display: block; }
+.track-lyrics pre {
+  font-family: inherit;
+  white-space: pre-wrap;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: #444;
+}
+
 /* Links section */
 .links-section {
   background: white;
@@ -307,6 +377,7 @@ body {
       <a href="#step10"><span class="nav-number">10</span>獎金計算</a>
       <a href="#step11"><span class="nav-number">11</span>獎金簽收表</a>
       <div class="nav-divider"></div>
+      <a href="#music"><span class="nav-number" style="background:rgba(231,76,60,0.3);color:#e74c3c;">&#x266B;</span>主題曲</a>
       <a href="#links"><span class="nav-number" style="background:rgba(23,162,184,0.3);color:#17a2b8;">&#x1F517;</span>相關連結</a>
     </nav>
   </aside>
@@ -506,6 +577,201 @@ body {
             <br>4. 每組買入提撥獎金至活動獎池（每周排行榜分配 60% / 每月排行榜分配 40%）
           </div>
           <img src="images/11-prize-receipt.jpg" alt="獎金簽收表">
+        </div>
+      </div>
+
+      <!-- Music -->
+      <div class="music-section" id="music">
+        <h2>CITY POKER 主題曲</h2>
+
+        <div class="track">
+          <div class="track-header" onclick="this.parentElement.querySelector('.track-lyrics').classList.toggle('open');this.querySelector('.track-toggle').textContent=this.parentElement.querySelector('.track-lyrics.open')?'收起歌詞':'展開歌詞'">
+            <div>
+              <div class="track-title">01. 回家的路</div>
+              <div class="track-style">Pop / R&B ‧ 男女合聲</div>
+            </div>
+            <span class="track-toggle">展開歌詞</span>
+          </div>
+          <div class="track-player">
+            <audio controls preload="none"><source src="music/01-回家的路.mp3" type="audio/mpeg"></audio>
+            <a href="music/01-回家的路.mp3" download>下載</a>
+          </div>
+          <div class="track-lyrics"><pre>霓虹燈下 走過喧囂的街
+推開那扇門 世界慢了一拍
+熟悉的笑聲 飄在空氣裡
+這裡不用偽裝 做最真的自己
+
+不管你從哪裡來
+這裡都有你的位子在
+
+City Poker City Poker
+像家一樣的地方
+City Poker City Poker
+每個角落都發光
+洗牌的聲音 是最溫暖的節奏
+贏或輸都沒關係 因為你不是一個人
+
+下班以後 不想回空蕩的房
+來這坐坐 聊聊今天的瘋狂
+一杯咖啡 一局牌 一段故事
+陌生人也能變成 最好的對手
+
+從台北到高雄 從白天到深夜
+每一間 City Poker 都是你的避風港
+不只是遊戲 是一種生活方式
+不只是品牌 是一個歸屬
+
+City Poker... 回家吧
+City Poker... 我們在這等你</pre></div>
+        </div>
+
+        <div class="track">
+          <div class="track-header" onclick="this.parentElement.querySelector('.track-lyrics').classList.toggle('open');this.querySelector('.track-toggle').textContent=this.parentElement.querySelector('.track-lyrics.open')?'收起歌詞':'展開歌詞'">
+            <div>
+              <div class="track-title">02. 今晚我是主角</div>
+              <div class="track-style">輕快流行 120BPM ‧ 男女合聲</div>
+            </div>
+            <span class="track-toggle">展開歌詞</span>
+          </div>
+          <div class="track-player">
+            <audio controls preload="none"><source src="music/02-今晚我是主角.mp3" type="audio/mpeg"></audio>
+            <a href="music/02-今晚我是主角.mp3" download>下載</a>
+          </div>
+          <div class="track-lyrics"><pre>今晚不加班 手機丟一邊
+約了老朋友 City Poker 見
+燈光剛剛好 音樂在耳邊
+坐下那一刻 煩惱全不見
+
+手上的牌 是今晚的故事
+翻開的瞬間 心跳加速一拍
+
+今晚我是主角 City Poker 開場
+管他明天怎樣 先把快樂拿上
+笑聲蓋過一切 這裡什麼都好
+City Poker 的夜 我們一起閃耀
+
+隔壁桌的你 第一次來嗎
+別緊張坐下 我教你怎麼玩
+贏了請你喝 輸了也不怕
+City Poker 的規則 就是開心就好
+
+City Poker 開場囉
+你準備好了嗎</pre></div>
+        </div>
+
+        <div class="track">
+          <div class="track-header" onclick="this.parentElement.querySelector('.track-lyrics').classList.toggle('open');this.querySelector('.track-toggle').textContent=this.parentElement.querySelector('.track-lyrics.open')?'收起歌詞':'展開歌詞'">
+            <div>
+              <div class="track-title">03. Lucky Night</div>
+              <div class="track-style">歡快電子 125BPM ‧ 男女合聲</div>
+            </div>
+            <span class="track-toggle">展開歌詞</span>
+          </div>
+          <div class="track-player">
+            <audio controls preload="none"><source src="music/03-Lucky-Night.mp3" type="audio/mpeg"></audio>
+            <a href="music/03-Lucky-Night.mp3" download>下載</a>
+          </div>
+          <div class="track-lyrics"><pre>高跟鞋踩著節拍 走進這片光
+City Poker 的招牌 在夜裡最亮
+選一個好位子 點一杯最愛
+今晚的運氣 一定不會壞
+
+感覺到了嗎 空氣裡的期待
+每一張牌 都是新的開始
+
+It's a lucky night 在 City Poker
+把煩惱放下 把快樂帶走
+It's a lucky night 就是這個感覺
+City Poker 讓每晚都完美
+
+老闆娘記得我 老位子還在
+常客的默契 一個眼神就明白
+新朋友也歡迎 這裡不分你我
+City Poker 就是這麼簡單的快樂
+
+Lucky night 在 City Poker
+每一天都是 lucky night</pre></div>
+        </div>
+
+        <div class="track">
+          <div class="track-header" onclick="this.parentElement.querySelector('.track-lyrics').classList.toggle('open');this.querySelector('.track-toggle').textContent=this.parentElement.querySelector('.track-lyrics.open')?'收起歌詞':'展開歌詞'">
+            <div>
+              <div class="track-title">04. All In</div>
+              <div class="track-style">嘻哈 Trap 140BPM ‧ 男 Rap + 女 Hook</div>
+            </div>
+            <span class="track-toggle">展開歌詞</span>
+          </div>
+          <div class="track-player">
+            <audio controls preload="none"><source src="music/04-All-In.mp3" type="audio/mpeg"></audio>
+            <a href="music/04-All-In.mp3" download>下載</a>
+          </div>
+          <div class="track-lyrics"><pre>All in all in City Poker all in
+沒有退路 只有向前
+All in all in 孤注一擲
+最後的贏家 今晚揭曉
+
+倒數計時開始 籌碼堆成山
+對面那個眼神 想嚇我沒那麼簡單
+心跳一百八 但手穩得像鐵
+City Poker 的桌上 沒有人會可憐
+
+讀你的表情 分析你的弱點
+每一次下注 都是精密的計算
+你以為你贏了 但遊戲才開始
+City Poker 教會我 永遠不要放棄
+
+全場安靜 只剩心跳聲
+最後一張牌 決定誰是英雄
+汗水滴在桌上 但笑容沒變
+因為在 City Poker 我從來不認輸
+
+這就是 City Poker
+這就是我的戰場
+輸贏不重要
+重要的是 你敢不敢
+
+All in City Poker
+你 敢 不 敢</pre></div>
+        </div>
+
+        <div class="track">
+          <div class="track-header" onclick="this.parentElement.querySelector('.track-lyrics').classList.toggle('open');this.querySelector('.track-toggle').textContent=this.parentElement.querySelector('.track-lyrics.open')?'收起歌詞':'展開歌詞'">
+            <div>
+              <div class="track-title">05. 最後一手</div>
+              <div class="track-style">激昂搖滾 150BPM ‧ 男女 Power 對唱</div>
+            </div>
+            <span class="track-toggle">展開歌詞</span>
+          </div>
+          <div class="track-player">
+            <audio controls preload="none"><source src="music/05-最後一手.mp3" type="audio/mpeg"></audio>
+            <a href="music/05-最後一手.mp3" download>下載</a>
+          </div>
+          <div class="track-lyrics"><pre>時間凍結在這一刻 全場屏息
+籌碼推到中央 沒有猶豫的餘地
+眼神交鋒 像刀鋒一樣銳利
+City Poker 的桌上 只有勇者站立
+
+心臟快要跳出來 但手不能抖
+所有的練習 所有的經驗 就在這一手
+
+最後一手 定生死
+City Poker 見真章
+最後一手 不後悔
+翻開那張牌 讓全世界看見
+我就是 City Poker 的王
+
+從第一局到現在 走過多少風浪
+被看不起的時候 咬牙也要撐住
+City Poker 教我的不只是牌技
+是永遠相信自己 就算全世界反對
+
+一張牌的距離 天堂或地獄
+一個決定 改變所有的結局
+但我不怕 因為我是 City Poker 的人
+
+最後一手
+City Poker
+翻牌</pre></div>
         </div>
       </div>
 
