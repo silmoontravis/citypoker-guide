@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CITY POKER 賽事管理系統 — 操作手冊</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  background: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+.header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: white;
+  text-align: center;
+  padding: 48px 20px;
+}
+.header h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  letter-spacing: 2px;
+}
+.header .subtitle {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+.header .logo {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+.toc {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.toc h2 {
+  font-size: 1.1rem;
+  color: #1a1a2e;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e74c3c;
+}
+.toc ol {
+  padding-left: 20px;
+}
+.toc li {
+  margin: 6px 0;
+}
+.toc a {
+  color: #0f3460;
+  text-decoration: none;
+}
+.toc a:hover {
+  color: #e74c3c;
+  text-decoration: underline;
+}
+.step {
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.step-header {
+  background: #1a1a2e;
+  color: white;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.step-number {
+  background: #e74c3c;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.step-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.step-body {
+  padding: 20px 24px;
+}
+.step-body p {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+.step-body img {
+  width: 100%;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  margin: 8px 0 16px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.step-body img:hover {
+  transform: scale(1.02);
+}
+.tip {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 12px 16px;
+  border-radius: 0 8px 8px 0;
+  margin: 12px 0;
+  font-size: 0.9rem;
+}
+.tip strong {
+  color: #856404;
+}
+.warning {
+  background: #f8d7da;
+  border-left: 4px solid #dc3545;
+  padding: 12px 16px;
+  border-radius: 0 8px 8px 0;
+  margin: 12px 0;
+  font-size: 0.9rem;
+}
+.warning strong {
+  color: #721c24;
+}
+.info {
+  background: #d1ecf1;
+  border-left: 4px solid #17a2b8;
+  padding: 12px 16px;
+  border-radius: 0 8px 8px 0;
+  margin: 12px 0;
+  font-size: 0.9rem;
+}
+.info strong {
+  color: #0c5460;
+}
+.links-section {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.links-section h2 {
+  font-size: 1.1rem;
+  color: #1a1a2e;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e74c3c;
+}
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+.link-card .icon {
+  font-size: 1.5rem;
+}
+.link-card .label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.link-card .url {
+  font-size: 0.85rem;
+  color: #666;
+  word-break: break-all;
+}
+.footer {
+  text-align: center;
+  padding: 24px;
+  color: #999;
+  font-size: 0.85rem;
+}
+@media (max-width: 600px) {
+  .header h1 { font-size: 1.5rem; }
+  .step-body { padding: 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">&spades;</div>
+  <h1>CITY POKER 賽事管理系統</h1>
+  <div class="subtitle">操作手冊 — 從建立賽事到獎金計算</div>
+</div>
+
+<div class="container">
+
+  <div class="toc">
+    <h2>目錄</h2>
+    <ol>
+      <li><a href="#step1">系統首頁總覽</a></li>
+      <li><a href="#step2">賽事列表</a></li>
+      <li><a href="#step3">新增賽事</a></li>
+      <li><a href="#step4">建立賽事完成</a></li>
+      <li><a href="#step5">進入點碼頁面</a></li>
+      <li><a href="#step6">登記會員編號（Fans ID）</a></li>
+      <li><a href="#step7">輸入總買入數</a></li>
+      <li><a href="#step8">清點計分牌（錯誤示範）</a></li>
+      <li><a href="#step9">清點計分牌（正確）</a></li>
+      <li><a href="#step10">獎金計算</a></li>
+      <li><a href="#step11">獎金簽收表</a></li>
+      <li><a href="#links">相關連結</a></li>
+    </ol>
+  </div>
+
+  <!-- Step 1 -->
+  <div class="step" id="step1">
+    <div class="step-header">
+      <div class="step-number">1</div>
+      <div class="step-title">系統首頁總覽</div>
+    </div>
+    <div class="step-body">
+      <p>登入系統後，首頁顯示：</p>
+      <ul>
+        <li><strong>本月業績</strong>：當月收入總額</li>
+        <li><strong>本月總帳</strong>：當月支出總額</li>
+        <li><strong>賽事數量</strong>：當月已舉辦的場次</li>
+        <li>下方為月曆視圖，可快速查看每日賽事安排</li>
+      </ul>
+      <p>左側選單包含：會員管理、賽事管理（賽事列表、賽事結果紀錄、比賽類型設定）、優惠回饋</p>
+      <img src="images/01-dashboard.jpg" alt="系統首頁">
+    </div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="step" id="step2">
+    <div class="step-header">
+      <div class="step-number">2</div>
+      <div class="step-title">賽事列表</div>
+    </div>
+    <div class="step-body">
+      <p>進入 <strong>賽事管理 → 賽事列表</strong>，可看到所有賽事紀錄。</p>
+      <p>上方有 <strong>新增</strong>、<strong>修改</strong>、<strong>刪除</strong> 三個操作按鈕。</p>
+      <div class="tip">
+        <strong>注意：</strong>主題紅色表示人頭積分數加計 50%
+      </div>
+      <img src="images/02-event-list.jpg" alt="賽事列表">
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="step" id="step3">
+    <div class="step-header">
+      <div class="step-number">3</div>
+      <div class="step-title">新增賽事（當下有開桌的限時）</div>
+    </div>
+    <div class="step-body">
+      <p>點擊 <strong>新增</strong> 後，填寫以下欄位：</p>
+      <ul>
+        <li><strong>賽事主題</strong>：可自行更改（例如 3400#1）</li>
+        <li><strong>賽事類型</strong>：選擇比賽類型（例如 限時錦標賽）</li>
+        <li><strong>特別加碼</strong>：勾選是否本場人頭積分加計 50%</li>
+        <li><strong>獎金配置</strong>：選擇對應的獎金方案</li>
+        <li><strong>賽事日期</strong>：選擇日期</li>
+        <li><strong>賽事地點</strong>：選擇場館</li>
+        <li><strong>備註</strong>：選填</li>
+      </ul>
+      <div class="tip">
+        <strong>提示：</strong>賽事主題可以自行更改，其他的照選即可。
+      </div>
+      <img src="images/03-create-event.jpg" alt="新增賽事">
+    </div>
+  </div>
+
+  <!-- Step 4 -->
+  <div class="step" id="step4">
+    <div class="step-header">
+      <div class="step-number">4</div>
+      <div class="step-title">建立賽事完成</div>
+    </div>
+    <div class="step-body">
+      <p>賽事建立成功後，會出現在列表中，顯示 <strong>主題</strong>、<strong>類型</strong>、<strong>日期</strong>、<strong>地點</strong>。</p>
+      <p>點擊左側的綠色 <strong>「點碼」</strong> 按鈕，進入計分牌登記頁面。</p>
+      <img src="images/04-event-created.jpg" alt="賽事已建立">
+    </div>
+  </div>
+
+  <!-- Step 5 -->
+  <div class="step" id="step5">
+    <div class="step-header">
+      <div class="step-number">5</div>
+      <div class="step-title">進入點碼頁面</div>
+    </div>
+    <div class="step-body">
+      <p>點碼頁面顯示：</p>
+      <ul>
+        <li><strong>總買入數</strong>：本場比賽的總買入次數</li>
+        <li><strong>初始計分牌</strong>：每次買入的起始籌碼（例如 50,000）</li>
+        <li><strong>總計分牌</strong>：總買入數 &times; 初始計分牌</li>
+        <li>下方表格：座號、Fans ID、計分牌、Bounty</li>
+      </ul>
+      <img src="images/05-scoring-empty.jpg" alt="點碼頁面">
+    </div>
+  </div>
+
+  <!-- Step 6 -->
+  <div class="step" id="step6">
+    <div class="step-header">
+      <div class="step-number">6</div>
+      <div class="step-title">登記會員編號（Fans ID）</div>
+    </div>
+    <div class="step-body">
+      <p>在 <strong>比賽結束前 10 分鐘</strong>，開始登記還存活的會員。</p>
+      <p>選擇座號，輸入該玩家的 <strong>Fans ID</strong>（與 Poker Fans 帳號相同）。</p>
+      <div class="warning">
+        <strong>注意：</strong>如果出現 <span style="color:red;">紅色框框</span>，代表該 ID 尚未註冊 CITY POKER 會員，請引導該玩家先完成註冊。
+      </div>
+      <img src="images/06-register-members.jpg" alt="登記會員">
+    </div>
+  </div>
+
+  <!-- Step 7 -->
+  <div class="step" id="step7">
+    <div class="step-header">
+      <div class="step-number">7</div>
+      <div class="step-title">輸入總買入數</div>
+    </div>
+    <div class="step-body">
+      <p>在上方輸入 <strong>總買入數</strong>（例如 15），系統自動計算：</p>
+      <p><strong>總計分牌 = 總買入數 &times; 初始計分牌</strong>（15 &times; 50,000 = 750,000）</p>
+      <div class="tip">
+        <strong>提示：</strong>比賽結束前要登記完成，好了的話按 <strong>「暫存」</strong>。等待比賽時間結束，再清點計分牌。
+      </div>
+      <img src="images/07-total-buyin.jpg" alt="輸入總買入數">
+    </div>
+  </div>
+
+  <!-- Step 8 -->
+  <div class="step" id="step8">
+    <div class="step-header">
+      <div class="step-number">8</div>
+      <div class="step-title">清點計分牌（錯誤示範）</div>
+    </div>
+    <div class="step-body">
+      <p>比賽結束後，逐一輸入每位玩家的計分牌數量。</p>
+      <div class="warning">
+        <strong>紅字警告：</strong>出現紅字代表 <strong>點碼不對</strong> — 點到剩 0（或是組數有誤）。
+        <br>合計總計分牌必須等於上方的 <strong>總計分牌數</strong>。
+      </div>
+      <img src="images/08-scoring-error.jpg" alt="計分牌錯誤">
+    </div>
+  </div>
+
+  <!-- Step 9 -->
+  <div class="step" id="step9">
+    <div class="step-header">
+      <div class="step-number">9</div>
+      <div class="step-title">清點計分牌（正確）</div>
+    </div>
+    <div class="step-body">
+      <p>當 <strong>合計總計分牌 = 總計分牌</strong>（750,000 = 750,000）時，表示計分正確。</p>
+      <p>計分牌正確後，一樣按 <strong>「暫存」</strong>。</p>
+      <div class="warning">
+        <strong>重要：</strong>通知櫃台人員，都由 <strong>櫃檯人員</strong> 按 <strong>「存檔」</strong>！
+        <br>存檔是最後一關，讓櫃台的人按比較不會出錯。
+      </div>
+      <img src="images/09-scoring-correct.jpg" alt="計分牌正確">
+    </div>
+  </div>
+
+  <!-- Step 10 -->
+  <div class="step" id="step10">
+    <div class="step-header">
+      <div class="step-number">10</div>
+      <div class="step-title">獎金計算</div>
+    </div>
+    <div class="step-body">
+      <p>存檔後，回到賽事列表，點擊黃色的 <strong>「獎金計算」</strong> 按鈕。</p>
+      <img src="images/10-prize-button.jpg" alt="獎金計算按鈕">
+    </div>
+  </div>
+
+  <!-- Step 11 -->
+  <div class="step" id="step11">
+    <div class="step-header">
+      <div class="step-number">11</div>
+      <div class="step-title">獎金簽收表</div>
+    </div>
+    <div class="step-body">
+      <p>系統自動產出 <strong>CITY POKER 獎金簽收表</strong>，包含：</p>
+      <ul>
+        <li>賽事日期、場次、報名人次</li>
+        <li>各名次的 K.O.積分、計分牌、獎金金額</li>
+        <li>POKER FANS ID</li>
+        <li>姓名欄（請正楷簽收）</li>
+        <li>存入點數欄</li>
+      </ul>
+      <p>按 <strong>「列印」</strong> 即可印出簽收表。</p>
+      <div class="info">
+        <strong>獎金規則：</strong>
+        <br>1. 限定會員報名，滿四人即可開賽
+        <br>2. 重新買入優先於候補，低於均碼兩倍即可加購 Add-on，剩餘十分鐘截止買入
+        <br>3. 計算獎金以百為最小單位，每組買入提撥名次獎金給予前三名（50%、30%、20%）
+        <br>4. 每組買入提撥獎金至活動獎池（每周排行榜分配 60% / 每月排行榜分配 40%）
+      </div>
+      <img src="images/11-prize-receipt.jpg" alt="獎金簽收表">
+    </div>
+  </div>
+
+  <!-- Links -->
+  <div class="links-section" id="links">
+    <h2>相關連結</h2>
+    <div class="link-card">
+      <div class="icon">&spades;</div>
+      <div>
+        <div class="label">後台管理系統</div>
+        <div class="url">https://system.citypoker.vip</div>
+      </div>
+    </div>
+    <div class="link-card">
+      <div class="icon">&#x1F4F1;</div>
+      <div>
+        <div class="label">會員 APP（手機開啟）</div>
+        <div class="url">https://app.citypoker.vip</div>
+      </div>
+    </div>
+    <div class="info">
+      <strong>會員註冊說明：</strong>
+      <br>- 用 POKER FANS 幫玩家報名
+      <br>- 註冊 CITY POKER 會員時，編號要填跟 POKER FANS 的一樣
+      <br>- 客人如果尚未註冊，請到 app.citypoker.vip 底下註冊（只能手機開）
+      <br>- 手機可以用 Safari 開啟後存到桌面，方便查看成績
+      <br>- 點碼配置預設常用的都已經幫你們配置好了，直接可以開始使用
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>CITY POKER UNION &copy; 2026</p>
+  <p>本手冊由系統團隊製作</p>
+</div>
+
+</body>
+</html>
